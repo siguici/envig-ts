@@ -2,7 +2,37 @@
   "name": "@siguici/envig",
   "version": "0.0.0",
   "module": "src/index.ts",
+  "engines": {
+    "bun": ">=1.2"
+  },
+  "packageManager": "bun@1.2.15",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "description": "🔧 Unified Configuration and Environment Manager for Bun/TypeScript",
+  "repository": "https://github.com/siguici/envig-ts",
+  "author": "Sigui Kessé Emmanuel <siguici@proton.me>",
+  "license": "MIT",
+  "keywords": [
+    "config",
+    "configuration",
+    "env",
+    "envig",
+    "environment",
+    "manager",
+    "bun",
+    "typescript",
+    "toml"
+  ],
+  "files": ["src", "LICENSE.md", "package.json", "README.md"],
+  "exports": {
+    ".": "./src/index.ts",
+    "./package.json": "./package.json"
+  },
   "devDependencies": {
     "@types/bun": "^1.2.15"
   },
