@@ -48,23 +48,6 @@ export class Envig<T extends object> {
 }
 
 export namespace Envig {
-	export class Config<T extends Record<string, unknown>> {
-		readonly data: Record<string, unknown>;
-		constructor(data: T, vars = process.env) {
-			this.data = Object.fromEntries(
-				Object.entries(data).map(([key, value]) => {
-					let eValue = String(value);
-					for (const [k, v] of Object.entries(vars)) {
-						if (v !== undefined) {
-							eValue = eValue.replace(`$${k}`, v).replace(`\${${k}}`, v);
-						}
-					}
-					return [key, eValue];
-				}),
-			) as T;
-		}
-	}
-
 	export async function loadText(text: string) {
 		return new Envig(await parseText(text));
 	}
@@ -124,6 +107,6 @@ export async function envig(path: string) {
 	return Envig.load(path);
 }
 
-const _envig = await envig("config");
+const _envig = Bun.peek(envig("config")) as Envig<object>;
 
 export default _envig;
