@@ -6,9 +6,9 @@ import dotenvExpand from "dotenv-expand";
 
 dotenvExpand.expand(dotenv.config());
 
-export class Envig<T extends object> {
+export class Envig {
 	constructor(
-		public readonly data: T,
+		public readonly data: object = {},
 		readonly vars = process.env,
 	) {
 		this.expandEnvVars(this.data);
@@ -25,7 +25,10 @@ export class Envig<T extends object> {
 
 		if (typeof obj === "object" && obj !== null) {
 			for (const [key, value] of Object.entries(obj)) {
-				obj[key] = this.expandEnvVars(value);
+				if (typeof key === "string") {
+					// @ts-ignore
+					obj[key] = this.expandEnvVars(value);
+				}
 			}
 		}
 
@@ -43,6 +46,7 @@ export class Envig<T extends object> {
 	}
 
 	get(path: string): unknown {
+		// @ts-ignore
 		return path.split(".").reduce((acc, key) => acc?.[key], this.data);
 	}
 }
@@ -85,7 +89,7 @@ export namespace Envig {
 
 	export async function parseDir(dir: string) {
 		const entries = readdirSync(dir);
-		const mergedData: object = {};
+		const mergedData: Record<string, unknown> = {};
 
 		for (const entry of entries) {
 			const entryPath = join(dir, entry);
@@ -107,6 +111,6 @@ export async function envig(path: string) {
 	return Envig.load(path);
 }
 
-const _envig = Bun.peek(envig("config")) as Envig<object>;
+const _envig = envig("config");
 
 export default _envig;

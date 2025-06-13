@@ -1,6 +1,12 @@
 {
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"include": ["src/**/*.ts"],
+	"exclude": ["node_modules", "dist"],
 	"compilerOptions": {
 		"outDir": "./dist/",
+		"baseUrl": "./",
+		"types": ["bun"],
+		"typeRoots": ["node_modules/@types"],
 		"declaration": true,
 		"emitDeclarationOnly": true,
 		// Environment setup & latest features
@@ -15,7 +21,7 @@
 		"moduleResolution": "bundler",
 		"allowImportingTsExtensions": true,
 		"verbatimModuleSyntax": true,
-		"noEmit": true,
+		"noEmit": false,
 
 		// Best practices
 		"strict": true,
