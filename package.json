@@ -6,7 +6,7 @@
 		"bun": ">=1.2"
 	},
 	"browser": false,
-	"packageManager": "bun@1.2.15",
+	"packageManager": "bun@1.2.16",
 	"private": false,
 	"publishConfig": {
 		"access": "public"
@@ -41,7 +41,7 @@
 		"./package.json": "./package.json"
 	},
 	"devDependencies": {
-		"@types/bun": "^1.2.15"
+		"@types/bun": "^1.2.16"
 	},
 	"peerDependencies": {
 		"typescript": "^5.8.3"
