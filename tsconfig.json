@@ -1,5 +1,8 @@
 {
 	"compilerOptions": {
+		"outDir": "./dist/",
+		"declaration": true,
+		"emitDeclarationOnly": true,
 		// Environment setup & latest features
 		"lib": ["ESNext"],
 		"target": "ESNext",

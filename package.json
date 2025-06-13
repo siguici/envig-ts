@@ -34,7 +34,7 @@
 	],
 	"files": ["src", "dist", "LICENSE.md", "package.json", "README.md"],
 	"scripts": {
-		"build": "bun run scripts/build.ts"
+		"build": "tsc && bun run scripts/build.ts"
 	},
 	"exports": {
 		".": "./dist/index.js",
