@@ -12,7 +12,7 @@
 		"access": "public"
 	},
 	"type": "module",
-	"main": "src/index.ts",
+	"main": "dist/index.js",
 	"types": "src/index.ts",
 	"description": "🔧 Unified Configuration and Environment Manager for Bun/TypeScript",
 	"repository": {
@@ -32,9 +32,12 @@
 		"typescript",
 		"toml"
 	],
-	"files": ["src", "LICENSE.md", "package.json", "README.md"],
+	"files": ["src", "dist", "LICENSE.md", "package.json", "README.md"],
+	"scripts": {
+		"build": "bun run scripts/build.ts"
+	},
 	"exports": {
-		".": "./src/index.ts",
+		".": "./dist/index.js",
 		"./package.json": "./package.json"
 	},
 	"devDependencies": {
