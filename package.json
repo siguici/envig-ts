@@ -1,6 +1,6 @@
 {
 	"name": "@siguici/envig",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"module": "src/index.ts",
 	"engines": {
 		"bun": ">=1.2"
